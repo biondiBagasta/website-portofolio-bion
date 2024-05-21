@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-personal-info',
   standalone: true,
   imports: [],
   templateUrl: './personal-info.component.html',
-  styleUrl: './personal-info.component.scss'
+  styleUrl: './personal-info.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonalInfoComponent {
 
