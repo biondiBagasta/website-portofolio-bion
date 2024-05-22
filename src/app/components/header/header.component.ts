@@ -1,11 +1,13 @@
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, Inject, OnInit, Renderer2, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, HostListener, Inject, OnInit, Renderer2, signal } from '@angular/core';
 import { ThemeSignalService } from '../../signals/theme-signal.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
+    RouterModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -19,6 +21,8 @@ export class HeaderComponent implements OnInit {
 
   isDarkMode$ = computed(() => this.themeSignalService.isDarkTheme$());
 
+  isToggeledMobileMenu$ = signal(false);
+
   ngOnInit(): void {
     this.renderer.addClass(this.document.body, 'dark-theme');
   }
@@ -30,6 +34,17 @@ export class HeaderComponent implements OnInit {
     } else {
       this.renderer.addClass(this.document.body, 'dark-theme');
       this.themeSignalService.changeTheme();
+    }
+  }
+
+  toggleMobileMenu(): void {
+    this.isToggeledMobileMenu$.set(!this.isToggeledMobileMenu$());
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    if(window.innerWidth > 600) {
+      this.isToggeledMobileMenu$.set(false);
     }
   }
 }

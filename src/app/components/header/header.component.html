@@ -19,7 +19,7 @@
                             <i class="fa-light fa-moon"></i>
                             <i class="fa-light fa-sun"></i>
                         </div>
-                        <div class="menu-btn toggle_menu d-lg-none">
+                        <div class="menu-btn toggle_menu d-lg-none" [class.active]="isToggeledMobileMenu$()" (click)="toggleMobileMenu()">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -32,7 +32,39 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu-wrap">
-            <div class="mobile-menu mobile_menu_3">
+            <div class="mobile-menu mobile_menu_3 mean-container" [class.active]="isToggeledMobileMenu$()">
+                @if(isToggeledMobileMenu$()) {
+                    <div class="mean-bar">
+                        <nav class="mean-nav">
+                            <ul style="display: none;">
+                                <li routerLink="/about" routerLinkActive="active" style="cursor: pointer;">
+                                    <a>
+                                        <span class="mr-5">
+                                            <i class="fa-light fa-address-card"></i>
+                                        </span>
+                                        About
+                                    </a>
+                                </li>
+                                <li routerLink="/resume" routerLinkActive="active" style="cursor: pointer;">
+                                    <a>
+                                        <span class="mr-5">
+                                            <i class="fa-light fa-file-user"></i>
+                                        </span>
+                                        Resume
+                                    </a>
+                                </li>
+                                <li routerLink="/works" routerLinkActive="active" style="cursor: pointer;">
+                                    <a>
+                                        <span class="mr-5">
+                                            <i class="fa-light fa-briefcase"></i>
+                                        </span>
+                                        Works
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                }
             </div>
         </div>
 
