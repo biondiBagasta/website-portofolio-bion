@@ -69,6 +69,10 @@
     content: "\f549";
 }
 
+.fa-github:before {
+    content: "\f09b";
+}
+
 :host,
 :root {
     --fa-style-family-brands: "Font Awesome 6 Brands";
