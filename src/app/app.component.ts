@@ -23,6 +23,6 @@ export class AppComponent {
 
   isDarkTheme$ = computed(() => this.themeSignalService.isDarkTheme$());
 
-  darkBackgroundUrl = `url(/assets/img/bg/page-bg-dark-1.jpg)`;
-  lightBackgroundUrl = `url(/assets/img/bg/page-bg-1.jpg)`;
+  darkBackgroundUrl = `url(assets/img/bg/page-bg-dark-1.jpg)`;
+  lightBackgroundUrl = `url(assets/img/bg/page-bg-1.jpg)`;
 }
