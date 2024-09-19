@@ -1,0 +1,13 @@
+<div class="blog-slider-single bg-prink">
+    <a class="img" (click)="goToUrl()" style="cursor: pointer;">
+        <img [src]="imageUrl" alt="">
+    </a>
+    <div class="blog-meta" (click)="goToUrl()" style="cursor: pointer;">
+        <span class="blog-cetagory">{{ technologies }}</span>
+    </div>
+    <h6 class="blog-title" (click)="goToUrl()" style="cursor: pointer;">
+        <a>
+            {{ title }}
+        </a>
+    </h6>
+</div>
